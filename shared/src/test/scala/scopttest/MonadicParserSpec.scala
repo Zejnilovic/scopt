@@ -108,8 +108,8 @@ object MonadicParserSpec extends verify.BasicTestSuite {
         """scopt 4.x
         |Usage: scopt [options] <source> <dest>
         |
-        |  -f, --foo <value>  foo is an integer property
-        |  --debug            debug is a flag
+        |  -f, --foo <value>  [Optional] foo is an integer property
+        |  --debug            [Optional] debug is a flag
         |  <source>
         |  <dest>""".stripMargin)
     ()
@@ -180,8 +180,8 @@ object MonadicParserSpec extends verify.BasicTestSuite {
         """scopt 4.x
         |Usage: scopt [options]
         |
-        |  -b, --bob  text
-        |  -b, --bob""".stripMargin)
+        |  -b, --bob  [Optional] text
+        |  -b, --bob  [Optional]""".stripMargin)
     ()
   }
 
@@ -200,7 +200,7 @@ object MonadicParserSpec extends verify.BasicTestSuite {
         """scopt 4.x
         |Usage: scopt [options]
         |
-        |  -f, --foo""".stripMargin)
+        |  -f, --foo  [Optional]""".stripMargin)
     ()
   }
 
@@ -239,9 +239,9 @@ object MonadicParserSpec extends verify.BasicTestSuite {
         """scopt 4.x
         |Usage: scopt [options]
         |
-        |  -a, --alice
-        |  -b, --bob
-        |  -ab, --alicebob""".stripMargin)
+        |  -a, --alice      [Optional]
+        |  -b, --bob        [Optional]
+        |  -ab, --alicebob  [Optional]""".stripMargin)
     ()
   }
 
@@ -281,7 +281,7 @@ object MonadicParserSpec extends verify.BasicTestSuite {
         """scopt 4.x
         |Usage: scopt [options]
         |
-        |  -f, --foo <value>
+        |  -f, --foo <value>  [Optional]
         |  --help""".stripMargin)
     ()
   }
@@ -337,7 +337,7 @@ object MonadicParserSpec extends verify.BasicTestSuite {
         """scopt 4.x
         |Usage: scopt [options]
         |
-        |  -f, --foo <value>
+        |  -f, --foo <value>  [Optional]
         |  --help""".stripMargin)
     ()
   }
@@ -427,8 +427,8 @@ object MonadicParserSpec extends verify.BasicTestSuite {
         |
         |Command: update [options]
         |
-        |  --foo
-        |  --bar <value>""".stripMargin)
+        |  --foo                    [Optional]
+        |  --bar <value>            [Optional]""".stripMargin)
     ()
   }
 
@@ -462,13 +462,13 @@ object MonadicParserSpec extends verify.BasicTestSuite {
         |
         |Command: update [options]
         |
-        |  --foo
-        |  --bar <value>
+        |  --foo                    [Optional]
+        |  --bar <value>            [Optional]
         |
         |Command: status [options]
         |
-        |  --foo
-        |  --bar <value>
+        |  --foo                    [Optional]
+        |  --bar <value>            [Optional]
         |""".stripMargin)
     ()
   }

@@ -459,11 +459,11 @@ object MutableParserSpec extends verify.BasicTestSuite {
 Usage: scopt [update] [options]
 
   -f <value> | --foo <value>
-        foo is an integer property
+        [Optional] foo is an integer property
   --max:<libname>=<max>
-        maximum count for <libname>
+        [Optional] maximum count for <libname>
   --verbose
-        verbose is a flag
+        [Optional] verbose is a flag
   --help
         prints this usage text
 some notes.
@@ -471,9 +471,9 @@ some notes.
 Command: update [options]
 update is a command.
   -nk | --not-keepalive
-        disable keepalive
+        [Optional] disable keepalive
   --xyz <value>
-        xyz is a boolean property""")
+        [Optional] xyz is a boolean property""")
   }
 
   def helpParserTwoColumns(args: String*): Unit = {
@@ -533,16 +533,16 @@ update is a command.
     assert(parser.usage == """scopt 3.x
 Usage: scopt [update] [options]
 
-  -f, --foo <value>        foo is an integer property
-  --max:<libname>=<max>    maximum count for <libname>
-  --verbose                verbose is a flag
+  -f, --foo <value>        [Optional] foo is an integer property
+  --max:<libname>=<max>    [Optional] maximum count for <libname>
+  --verbose                [Optional] verbose is a flag
   --help                   prints this usage text
 some notes.
 
 Command: update [options]
 update is a command.
-  -nk, --not-keepalive     disable keepalive
-  --xyz <value>            xyz is a boolean property""")
+  -nk, --not-keepalive     [Optional] disable keepalive
+  --xyz <value>            [Optional] xyz is a boolean property""")
   }
 
   def printParserError(body: scopt.OptionParser[Unit] => Unit): String = {

@@ -192,7 +192,13 @@ class OptionDef[A: Read, C](
   def hasFallback: Boolean = _fallback.isDefined
   def getFallback: A = _fallback.get.apply
   private[scopt] def checks: CSeq[C => Either[String, Unit]] = _configValidations
-  def desc: String = _desc
+  def desc: String = {
+    val isOptional = (_kind == Opt && _minOccurs == 0)
+    val prefix = if (isOptional) { "[Optional]" } else { "" }
+    val separator = if (isOptional && _desc.nonEmpty) { " " } else { "" }
+    s"""$prefix$separator${_desc}"""
+  }
+
   def shortOpt: Option[String] = _shortOpt
   def valueName: Option[String] = _valueName
 

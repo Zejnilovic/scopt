@@ -769,13 +769,13 @@ Usage: scopt [options]
 Usage: scopt [update] [options]
 
   -f <value> | --foo <value>
-        foo is an integer property
+        [Optional] foo is an integer property
   --max:<libname>=<max>
-        maximum count for <libname>
+        [Optional] maximum count for <libname>
   --kwargs k1=v1,k2=v2...
-        other arguments
+        [Optional] other arguments
   --verbose
-        verbose is a flag
+        [Optional] verbose is a flag
   --help
         prints this usage text
 some notes.
@@ -783,9 +783,9 @@ some notes.
 Command: update [options]
 update is a command.
   -nk | --not-keepalive
-        disable keepalive
+        [Optional] disable keepalive
   --xyz <value>
-        xyz is a boolean property""".newlines
+        [Optional] xyz is a boolean property""".newlines
     val expectedHeader = """scopt 3.x"""
 
     assert(parser.header == expectedHeader)
@@ -857,17 +857,17 @@ update is a command.
     val expectedUsage = """scopt 3.x
 Usage: scopt [update] [options]
 
-  -f, --foo <value>        foo is an integer property
-  --max:<libname>=<max>    maximum count for <libname>
-  --kwargs k1=v1,k2=v2...  other arguments
-  --verbose                verbose is a flag
+  -f, --foo <value>        [Optional] foo is an integer property
+  --max:<libname>=<max>    [Optional] maximum count for <libname>
+  --kwargs k1=v1,k2=v2...  [Optional] other arguments
+  --verbose                [Optional] verbose is a flag
   --help                   prints this usage text
 some notes.
 
 Command: update [options]
 update is a command.
-  -nk, --not-keepalive     disable keepalive
-  --xyz <value>            xyz is a boolean property""".newlines
+  -nk, --not-keepalive     [Optional] disable keepalive
+  --xyz <value>            [Optional] xyz is a boolean property""".newlines
     val expectedHeader = """scopt 3.x"""
 
     assert((parser.header == expectedHeader) && (parser.usage == expectedUsage))
